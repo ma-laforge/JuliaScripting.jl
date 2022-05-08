@@ -1,0 +1,14 @@
+#!JLScript -iq --startup-file=no --project=@GlobalScripting_ASME
+using JuliaScripting
+
+#raw"": Allows paths with "\" without escaping (ex: "S:\\Material..."):
+data_root = raw"S:\Material Properties"
+
+options = (
+	input_file = joinpath(data_root, "Section II-D Tables.xlsx"),
+	output_dir = joinpath(data_root, raw"Excel Material Data\AIP Q&T Steels"),
+)
+
+result = JuliaScripting.RunTheScript(options)
+display(result) #Because: Why not?
+:DONE

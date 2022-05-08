@@ -1,0 +1,13 @@
+[version]
+signature="$CHICAGO$"
+
+[DefaultInstall]
+AddReg = Explore.AddReg
+
+[Strings]
+ACTION_TEXT = "Execute with Julia $(JULIA_VERSION)"
+ACTION_CMD = "powershell -WindowStyle hidden -ExecutionPolicy Bypass -Command "$(LANUCHERCMD)" '%1'"
+
+[Explore.AddReg]
+HKCR,SystemFileAssociations\\.jl_script\\shell\\$(ACTION_NAME),,,%ACTION_TEXT%
+HKCR,SystemFileAssociations\\.jl_script\\shell\\$(ACTION_NAME)\\command,,,%ACTION_CMD%
